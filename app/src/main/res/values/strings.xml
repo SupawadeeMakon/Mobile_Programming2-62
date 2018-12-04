@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lab1_Basic</string>
+    <string name="name">Supawadee Mak-on</string>
+    <string name="nickname">Piw</string>
+    <string name="what">What is this?</string>
+    <string name="wellcome">ยินดีต้อนรับเข้าสู่ระบบ</string>
 </resources>
