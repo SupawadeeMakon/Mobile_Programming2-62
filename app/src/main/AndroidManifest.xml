@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Second" />
         <activity android:name=".calculator" />
-        <activity android:name=".login"></activity>
+        <activity android:name=".login" />
+        <activity android:name=".Result"></activity>
     </application>
 
 </manifest>

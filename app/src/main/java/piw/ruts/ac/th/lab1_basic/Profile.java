@@ -40,7 +40,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Profile.this, login.class);
-
+                //กรณีส่งข้อมูลผ่านการointent
                 intent.putExtra("name",username.getText().toString());
                 intent.putExtra("passwd", password.getText().toString());
                 intent.putExtra("telephone", phone.getText().toString());
