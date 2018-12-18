@@ -42,49 +42,81 @@ public class calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+
                     strTemperature = editData.getText().toString().trim();
+
                     if (strTemperature.equals("")){
                         Log.d("Space","It Have space in Blank");
 
                     }
                     else if (strTemRadio=="Celsius") {
+                        CalculateCelsius();
 
                         Intent intent = new Intent(calculator.this, Result.class);
+                        intent.putExtra("Tem",strTemperature);
+                        intent.putExtra("Unit",strTemRadio);
+                        intent.putExtra("Answer",strAnwer);
+
                         startActivity(intent);
-                        Log.d("Pass","It Have space in Data");
+                        Log.d("Pass","It Have space Celsius");
                     }
                     else if (strTemRadio=="Kalvin") {
+                        CalculateKalvin();
 
                         Intent intent = new Intent(calculator.this, Result.class);
+                        intent.putExtra("Tem",strTemperature);
+                        intent.putExtra("Unit",strTemRadio);
+                        intent.putExtra("Answer",strAnwer);
                         startActivity(intent);
-                        Log.d("Pass","It Have space in Data");
+                        Log.d("Pass","It Have space Kalvin");
                     }
                     else if (strTemRadio=="Fahrenheit") {
+                        CalculateFahrenheit();
 
                         Intent intent = new Intent(calculator.this, Result.class);
+                        intent.putExtra("Tem",strTemperature);
+                        intent.putExtra("Unit",strTemRadio);
+                        intent.putExtra("Answer",strAnwer);
                         startActivity(intent);
-                        Log.d("Pass","It Have space in Data");
+                        Log.d("Pass","It Have space Fahrenheit");
                     }
                 }catch (Exception e){}
 
 
             }
         });
-
+///set Radio Button
         Group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case  R.id.radioCel:
                         strTemRadio ="Celsius";
+                        break;
                     case  R.id.radioFaren:
                         strTemRadio ="Fahrenheit";
+                        break;
                     case  R.id.radioKil:
                         strTemRadio ="Kalvin";
+                        break;
                 }
             }
         });
 
-
     }
+///Function for calculate
+    private  void  CalculateCelsius(){
+        douAnswer = Double.parseDouble(strTemperature);
+        strAnwer = Double.toString(douAnswer);
+    }
+
+    private  void  CalculateFahrenheit(){
+        douAnswer = Double.parseDouble(strTemperature)*1.8+32;
+        strAnwer = Double.toString(douAnswer);
+    }
+    private  void  CalculateKalvin(){
+        douAnswer = Double.parseDouble(strTemperature)+273.15;
+        strAnwer = Double.toString(douAnswer);
+    }
+
 }
